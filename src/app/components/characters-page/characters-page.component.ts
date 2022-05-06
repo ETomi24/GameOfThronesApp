@@ -21,6 +21,7 @@ export class CharactersPageComponent implements OnInit {
   }
 
   getCharacters(pageNumber: number) {
+    this.characters_size = 0;
     this.characters = this.characterService.getCharacters(pageNumber);
     this.characters.subscribe(characters => {
       characters.forEach(b => { this.characters_size++ })
