@@ -14,3 +14,23 @@
     max-width: 1100px;
     margin-bottom: 8px;
 }
+
+.pager {
+    display: block;
+    margin-left: auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-right: auto;
+    width: 30%;
+
+}
+
+.pager-left {
+    margin-right: 50px;
+    margin-left: 140px;
+}
+
+.pager-right {
+    margin-left: 50px;
+    margin-right: 50px;
+}

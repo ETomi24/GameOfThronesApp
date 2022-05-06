@@ -20,7 +20,7 @@ export class CharactersPageComponent implements OnInit {
     this.getCharacters(this.pageNumber)
   }
 
-  getCharacters(pageNumber : number) {
+  getCharacters(pageNumber: number) {
     this.characters = this.characterService.getCharacters(pageNumber);
     this.characters.subscribe(characters => {
       characters.forEach(b => { this.characters_size++ })
@@ -40,7 +40,7 @@ export class CharactersPageComponent implements OnInit {
     let gender: String;
     gender = character.gender;
     if (gender == "") {
-      gender = "UNKNOWN";
+      gender = "Unknown";
     }
     return gender;
   }
@@ -49,7 +49,7 @@ export class CharactersPageComponent implements OnInit {
     let culture: String;
     culture = character.culture;
     if (culture == "") {
-      culture = "UNKNOWN";
+      culture = "Unknown";
     }
     return culture;
   }
