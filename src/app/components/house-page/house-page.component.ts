@@ -28,7 +28,7 @@ export class HousePageComponent implements OnInit {
   }
 
   navigateToHouse(url: string){
-    this.router.navigate(['house', url]);
+    this.router.navigate(['houses', url]);
   }
 
 }
