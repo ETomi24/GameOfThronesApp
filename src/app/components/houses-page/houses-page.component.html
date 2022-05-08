@@ -18,7 +18,7 @@
                         <mat-card-subtitle>Region : {{getHouseRegion(house)}}</mat-card-subtitle>
                         <mat-card-subtitle>Words : {{getHouseWords(house)}}</mat-card-subtitle>
                         <mat-card-actions align="end">
-                            <a mat-button>View</a>
+                            <a mat-button (click)="navigateToHouse(house.url)">View</a>
                         </mat-card-actions>
                     </mat-card-title-group>
                     <mat-card-content>

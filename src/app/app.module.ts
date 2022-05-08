@@ -11,10 +11,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
 import { BookService } from './services/book.service';
 import { BookPageComponent } from './components/book-page/book-page.component';
 import { CharacterService } from './services/character.service';
 import { HouseService } from './services/house.service';
+import { CharacterPageComponent } from './components/character-page/character-page.component';
+import { HousePageComponent } from './components/house-page/house-page.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +29,8 @@ import { HouseService } from './services/house.service';
     CharactersPageComponent,
     HousesPageComponent,
     BookPageComponent,
+    CharacterPageComponent,
+    HousePageComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +39,11 @@ import { HouseService } from './services/house.service';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatDividerModule,
+    MatExpansionModule,
+    MatListModule,
+    MatIconModule
   ],
   providers: [BookService, CharacterService, HouseService],
   bootstrap: [AppComponent]

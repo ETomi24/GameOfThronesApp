@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Character } from 'src/app/models/character';
 import { CharacterService } from 'src/app/services/character.service';
@@ -14,7 +15,8 @@ export class CharactersPageComponent implements OnInit {
   characters_size: number = 0;
   pageNumber: number = 1;
 
-  constructor(private characterService: CharacterService) { }
+  constructor(private characterService: CharacterService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.getCharacters(this.pageNumber)
@@ -53,6 +55,10 @@ export class CharactersPageComponent implements OnInit {
       culture = "Unknown";
     }
     return culture;
+  }
+
+  navigateToCharacter(url: string) {
+    this.router.navigate(['characters', url]);
   }
 
 }

@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { BookService } from 'src/app/services/book.service';
 import { Book } from 'src/app/models/book';
 import * as _ from "lodash";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-books-page',
@@ -14,7 +15,7 @@ export class BooksPageComponent implements OnInit {
   books: Observable<Book[]>;
   book_size: number = 0;
 
-  constructor(private bookService: BookService) { }
+  constructor(private bookService: BookService, private router: Router) { }
 
   ngOnInit(): void {
     this.getBooks();
@@ -27,4 +28,7 @@ export class BooksPageComponent implements OnInit {
     });
   }
 
+  navigateTo(book: Book) {
+    this.router.navigate(['books', book.url]);
+  }
 }

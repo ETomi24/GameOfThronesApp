@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { House } from 'src/app/models/house';
 import { HouseService } from 'src/app/services/house.service';
@@ -15,7 +16,8 @@ export class HousesPageComponent implements OnInit {
   pageNumber: number = 1;
 
 
-  constructor(private houseService: HouseService) { }
+  constructor(private houseService: HouseService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.getHouses(this.pageNumber);
@@ -37,6 +39,7 @@ export class HousesPageComponent implements OnInit {
     }
     return words;
   }
+
   getHouseRegion(house: House) {
     let region: String;
     region = house.region;
@@ -45,5 +48,10 @@ export class HousesPageComponent implements OnInit {
     }
     return region;
   }
+
+  navigateToHouse(url: string) {
+    this.router.navigate(['houses', url]);
+  }
+
 
 }

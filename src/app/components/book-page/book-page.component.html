@@ -1,1 +1,73 @@
-<p>book-page works!</p>
+<div class="content">
+  <mat-card class="example-card">
+    <mat-card-title-group>
+      <mat-card-title>{{book.name}}</mat-card-title>
+      <mat-card-subtitle>Creation Date : {{book.released|date:'longDate'}}</mat-card-subtitle>
+    </mat-card-title-group>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <br>
+      ISBN : {{book.isbn}}
+      <br>
+      Number of Pages : {{book.numberOfPages}}
+      <br>
+      Publisher : {{book.publisher}}
+      <br>
+      Country : {{book.country}}
+      <br>
+      <p>MediaType : {{book.mediaType}}</p>
+      <br>
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Authors
+            </mat-panel-title>
+            <mat-panel-description>
+              Number of Authors : {{book.authors.length}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <a *ngFor="let author of (book.authors)">
+            <p>{{author}}</p>
+          </a>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Characters
+            </mat-panel-title>
+            <mat-panel-description>
+              Number of Characters : {{book.characters.length}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <mat-nav-list>
+            <a mat-list-item *ngFor="let character of (book.characters)">
+              <a>{{character}} </a>
+              <button mat-icon-button (click)="navigateToCharacter(character)">
+                <mat-icon>search</mat-icon>
+              </button>
+            </a>
+          </mat-nav-list>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              POVCharacters
+            </mat-panel-title>
+            <mat-panel-description>
+              Number of POVCharacters : {{book.povCharacters.length}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <mat-nav-list>
+            <a mat-list-item *ngFor="let povCharacter of (book.povCharacters)">
+              <a>{{povCharacter}}</a>
+              <button mat-icon-button (click)="navigateToCharacter(povCharacter)">
+                <mat-icon>search</mat-icon>
+              </button>
+            </a>
+          </mat-nav-list>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </mat-card-content>
+  </mat-card>
+</div>

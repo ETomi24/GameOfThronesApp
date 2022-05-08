@@ -15,7 +15,7 @@ export class HouseService {
     return this.http.get<House[]>(this.apiUrl + "?page=" + page + "&pageSize=" + pageSize);
   }
 
-  getHouse(id: number): Observable<House> {
-    return this.http.get<House>(this.apiUrl)
+  getHouse(url: string): Observable<House> {
+    return this.http.get<House>(url)
   }
 }

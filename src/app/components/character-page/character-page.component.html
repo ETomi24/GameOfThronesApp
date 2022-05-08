@@ -1,0 +1,144 @@
+<div class="content">
+    <mat-card class="example-card">
+        <mat-card-title-group>
+            <mat-card-title *ngIf="character.name!=''">{{character.name}}</mat-card-title>
+            <mat-card-title *ngIf="character.name==''">Unknown</mat-card-title>
+        </mat-card-title-group>
+        <mat-divider></mat-divider>
+        <mat-card-content>
+            <br>
+            Gender : {{character.gender}}
+            <br>
+            Culture : {{character.culture}}
+            <br>
+            Born : {{character.born}}
+            <br>
+            Died : {{character.died}}
+            <br>
+            Father : <a>{{character.father}} </a>
+            <button *ngIf="character.father!='' " mat-icon-button (click)="navigateToCharacter(character.father)">
+                <mat-icon>search</mat-icon>
+            </button>
+            <br>
+            Mother : <a>{{character.mother}} </a>
+            <button *ngIf="character.mother!='' " mat-icon-button (click)="navigateToCharacter(character.mother)">
+                <mat-icon>search</mat-icon>
+            </button>
+            <br>
+            <p>Spouse : <a>{{character.spouse}} </a>
+                <button *ngIf="character.spouse!='' " mat-icon-button (click)="navigateToCharacter(character.spouse)">
+                    <mat-icon>search</mat-icon>
+                </button>
+            </p>
+            <br>
+            <mat-accordion>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Titles
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            Number of Titles : {{character.titles.length}}
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <a *ngFor="let title of (character.titles)">
+                        <p>{{title}}</p>
+                    </a>
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Aliases
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            Number of Aliases : {{character.aliases.length}}
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <a *ngFor="let alias of (character.aliases)">
+                        <p>{{alias}}</p>
+                    </a>
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Allegiances
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            Number of Allegiances : {{character.allegiances.length}}
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <mat-nav-list>
+                        <a mat-list-item *ngFor="let allegianc of (character.allegiances)">
+                            <a>{{allegianc}} </a>
+                            <button mat-icon-button (click)="navigateToHouse(allegianc)">
+                                <mat-icon>search</mat-icon>
+                            </button>
+                        </a>
+                    </mat-nav-list>
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Books
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            Number of Books : {{character.books.length}}
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <mat-nav-list>
+                        <a mat-list-item *ngFor="let book of (character.books)">
+                            <a>{{book}} </a>
+                            <button mat-icon-button (click)="navigateToBook(book)">
+                                <mat-icon>search</mat-icon>
+                            </button>
+                        </a>
+                    </mat-nav-list>
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            POVBooks
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            Number of POVBooks : {{character.povBooks.length}}
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <mat-nav-list>
+                        <a mat-list-item *ngFor="let book of (character.povBooks)">
+                            <a>{{book}} </a>
+                            <button mat-icon-button (click)="navigateToBook(book)">
+                                <mat-icon>search</mat-icon>
+                            </button>
+                        </a>
+                    </mat-nav-list>
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            TvSeries
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            Number of TvSeries : {{character.tvSeries.length}}
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <a *ngFor="let series of (character.tvSeries)">
+                        <p>{{series}}</p>
+                    </a>
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            PlayedBy
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            Number of PlayedBy : {{character.playedBy.length}}
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <a *ngFor="let actor of (character.playedBy)">
+                        <p>{{actor}}</p>
+                    </a>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </mat-card-content>
+    </mat-card>
+</div>
