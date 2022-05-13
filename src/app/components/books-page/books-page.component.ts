@@ -21,6 +21,7 @@ export class BooksPageComponent implements OnInit {
     this.getBooks();
   }
 
+  /*Ebben a függvényben lekérdezem az adott oldalon lévő összes könyvet*/
   getBooks() {
     this.books = this.bookService.getBooks();
     this.books.subscribe(books => {
@@ -28,6 +29,7 @@ export class BooksPageComponent implements OnInit {
     });
   }
 
+  /*Navigáció az adott könyv részletező oldalára*/
   navigateTo(book: Book) {
     this.router.navigate(['books', book.url]);
   }

@@ -23,7 +23,7 @@ export class HousesPageComponent implements OnInit {
     this.getHouses(this.pageNumber);
   }
 
-  
+  /*Ebben a függvényben lekérdezem az adott oldalon lévő összes házat*/ 
   getHouses(pageNumber: number) {
     this.houses_size = 0;
     this.houses = this.houseService.getHouses(pageNumber);
@@ -32,6 +32,7 @@ export class HousesPageComponent implements OnInit {
     });
   }
 
+  /*Ha a ház szavai üres string akkor én adok neki és azt adja vissza, ha van neki akkor azt adja vissza */
   getHouseWords(house: House) {
     let words: String;
     words = house.words;
@@ -41,6 +42,7 @@ export class HousesPageComponent implements OnInit {
     return words;
   }
 
+  /*Ha a ház régiojának neve üres string akkor én adok neki és azt adja vissza, ha van neki akkor azt adja vissza */
   getHouseRegion(house: House) {
     let region: String;
     region = house.region;
@@ -50,6 +52,7 @@ export class HousesPageComponent implements OnInit {
     return region;
   }
 
+  /*Navigáció az adott ház részletező oldalára*/
   navigateToHouse(url: string) {
     this.router.navigate(['houses', url]);
   }

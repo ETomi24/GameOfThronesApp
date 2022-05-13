@@ -22,6 +22,7 @@ export class CharactersPageComponent implements OnInit {
     this.getCharacters(this.pageNumber)
   }
 
+  /*Ebben a függvényben lekérdezem az adott oldalon lévő összes karaktert*/
   getCharacters(pageNumber: number) {
     this.characters_size = 0;
     this.characters = this.characterService.getCharacters(pageNumber);
@@ -30,6 +31,7 @@ export class CharactersPageComponent implements OnInit {
     });
   }
 
+  /*Ha a neve üres string akkor én adok neki és azt adja vissza, ha van neki akkor azt adja vissza */
   getCharacterName(character: Character) {
     let name: String;
     name = character.name;
@@ -39,6 +41,7 @@ export class CharactersPageComponent implements OnInit {
     return name;
   }
 
+  /*Ha a neme üres string akkor én adok neki és azt adja vissza, ha van neki akkor azt adja vissza */
   getCharacterGender(character: Character) {
     let gender: String;
     gender = character.gender;
@@ -48,6 +51,7 @@ export class CharactersPageComponent implements OnInit {
     return gender;
   }
 
+  /*Ha a kulturája üres string akkor én adok neki és azt adja vissza, ha van neki akkor azt adja vissza */
   getCharacterCulture(character: Character) {
     let culture: String;
     culture = character.culture;
@@ -57,6 +61,7 @@ export class CharactersPageComponent implements OnInit {
     return culture;
   }
 
+  /*Navigáció az adott karakter részletező oldalára*/
   navigateToCharacter(url: string) {
     this.router.navigate(['characters', url]);
   }
