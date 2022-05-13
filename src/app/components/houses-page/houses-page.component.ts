@@ -23,6 +23,7 @@ export class HousesPageComponent implements OnInit {
     this.getHouses(this.pageNumber);
   }
 
+  
   getHouses(pageNumber: number) {
     this.houses_size = 0;
     this.houses = this.houseService.getHouses(pageNumber);

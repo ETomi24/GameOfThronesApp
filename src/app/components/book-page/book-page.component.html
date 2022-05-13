@@ -1,4 +1,4 @@
-<div class="content">
+<div *ngIf="book" class="content">
   <mat-card class="example-card">
     <mat-card-title-group>
       <mat-card-title>{{book.name}}</mat-card-title>
@@ -37,13 +37,13 @@
               Characters
             </mat-panel-title>
             <mat-panel-description>
-              Number of Characters : {{book.characters.length}}
+              Number of Characters : {{characters.length}}
             </mat-panel-description>
           </mat-expansion-panel-header>
           <mat-nav-list>
-            <a mat-list-item *ngFor="let character of (book.characters)">
-              <a>{{character}} </a>
-              <button mat-icon-button (click)="navigateToCharacter(character)">
+            <a mat-list-item *ngFor="let character of (characters)">
+              <a (click)="navigateToCharacter(character.url)">{{getCharacterName(character.name)}} </a>
+              <button mat-icon-button (click)="navigateToCharacter(character.url)">
                 <mat-icon>search</mat-icon>
               </button>
             </a>
@@ -55,13 +55,13 @@
               POVCharacters
             </mat-panel-title>
             <mat-panel-description>
-              Number of POVCharacters : {{book.povCharacters.length}}
+              Number of POVCharacters : {{povCharacters.length}}
             </mat-panel-description>
           </mat-expansion-panel-header>
           <mat-nav-list>
-            <a mat-list-item *ngFor="let povCharacter of (book.povCharacters)">
-              <a>{{povCharacter}}</a>
-              <button mat-icon-button (click)="navigateToCharacter(povCharacter)">
+            <a mat-list-item *ngFor="let povCharacter of (povCharacters)">
+              <a (click)="navigateToCharacter(povCharacter.url)">{{getCharacterName(povCharacter.name)}}</a>
+              <button mat-icon-button (click)="navigateToCharacter(povCharacter.url)">
                 <mat-icon>search</mat-icon>
               </button>
             </a>

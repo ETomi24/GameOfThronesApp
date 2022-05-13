@@ -11,10 +11,12 @@ export class CharacterService {
   private apiUrl = "https://anapioficeandfire.com/api/characters";
   constructor(private http: HttpClient) { }
 
+  /*Lekérdezem az egy oldalon lévő összes karaktert az apitol*/
   getCharacters(page = 1, pageSize = 50): Observable<Character[]> {
     return this.http.get<Character[]>(this.apiUrl + "?page=" + page + "&pageSize=" + pageSize);
   }
 
+  /*Lekérdezem egy karakter adatait apitol*/
   getCharacter(url: string): Observable<Character> {
     return this.http.get<Character>(url);
   }

@@ -1,8 +1,7 @@
-<div class="content">
+<div *ngIf="house"class="content">
     <mat-card class="example-card">
         <mat-card-title-group>
-            <mat-card-title *ngIf="house.name!=''">{{house.name}}</mat-card-title>
-            <mat-card-title *ngIf="house.name==''">Unknown</mat-card-title>
+            <mat-card-title>{{house.name}}</mat-card-title>
         </mat-card-title-group>
         <mat-divider></mat-divider>
         <mat-card-content>
@@ -17,23 +16,23 @@
             <br>
             Died Out : {{house.diedOut}}
             <br>
-            CurrentLord : <a>{{house.currentLord}} </a>
-            <button *ngIf="house.currentLord!='' " mat-icon-button (click)="navigateToCharacter(house.currentLord)">
+            CurrentLord : <a *ngIf="currentLord" >{{currentLord.name}} </a>
+            <button *ngIf="house.currentLord!=''" mat-icon-button (click)="navigateToCharacter(house.currentLord)">
                 <mat-icon>search</mat-icon>
             </button>
             <br>
-            Heir : <a>{{house.heir}} </a>
-            <button *ngIf="house.heir!='' " mat-icon-button (click)="navigateToCharacter(house.heir)">
+            Heir : <a *ngIf="heir">{{heir.name}} </a>
+            <button *ngIf="house.heir!=''" mat-icon-button (click)="navigateToCharacter(house.heir)">
                 <mat-icon>search</mat-icon>
             </button>
             <br>
-            Overlord : <a>{{house.overlord}} </a>
-            <button *ngIf="house.overlord!='' " mat-icon-button (click)="navigateToHouse(house.overlord)">
+            Overlord : <a *ngIf="overlord">{{overlord.name}} </a>
+            <button *ngIf="house.overlord!=''" mat-icon-button (click)="navigateToHouse(house.overlord)">
                 <mat-icon>search</mat-icon>
             </button>
             <br>
-            <p>Founder : <a>{{house.founder}} </a>
-                <button *ngIf="house.founder!='' " mat-icon-button (click)="navigateToCharacter(house.founder)">
+            <p>Founder : <a *ngIf="founder">{{founder.name}} </a>
+                <button *ngIf="house.founder!=''" mat-icon-button (click)="navigateToCharacter(house.founder)">
                     <mat-icon>search</mat-icon>
                 </button>
             </p>
@@ -49,7 +48,7 @@
                         </mat-panel-description>
                     </mat-expansion-panel-header>
                     <a *ngFor="let title of (house.titles)">
-                        <p>{{title}}</p>
+                        <p>{{title || "Unknown"}}</p>
                     </a>
                 </mat-expansion-panel>
                 <mat-expansion-panel>
@@ -62,7 +61,7 @@
                         </mat-panel-description>
                     </mat-expansion-panel-header>
                     <a *ngFor="let seat of (house.seats)">
-                        <p>{{seat}}</p>
+                        <p>{{seat || "Unknown"}}</p>
                     </a>
                 </mat-expansion-panel>
                 <mat-expansion-panel>
@@ -75,7 +74,7 @@
                         </mat-panel-description>
                     </mat-expansion-panel-header>
                     <a *ngFor="let ancestralWeapon of (house.ancestralWeapons)">
-                        <p>{{ancestralWeapon}}</p>
+                        <p>{{ancestralWeapon || "Unknown"}}</p>
                     </a>
                 </mat-expansion-panel>
                 <mat-expansion-panel>
@@ -88,9 +87,9 @@
                         </mat-panel-description>
                     </mat-expansion-panel-header>
                     <mat-nav-list>
-                        <a mat-list-item *ngFor="let cadetBranch of (house.cadetBranches)">
-                            <a>{{cadetBranch}} </a>
-                            <button mat-icon-button (click)="navigateToHouse(cadetBranch)">
+                        <a mat-list-item *ngFor="let cadetBranch of (cadetBranches)">
+                            <a (click)="navigateToHouse(cadetBranch.url)">{{cadetBranch.name}} </a>
+                            <button mat-icon-button (click)="navigateToHouse(cadetBranch.url)">
                                 <mat-icon>search</mat-icon>
                             </button>
                         </a>
@@ -106,9 +105,9 @@
                         </mat-panel-description>
                     </mat-expansion-panel-header>
                     <mat-nav-list>
-                        <a mat-list-item *ngFor="let swornMember of (house.swornMembers)">
-                            <a>{{swornMember}} </a>
-                            <button mat-icon-button (click)="navigateToCharacter(swornMember)">
+                        <a mat-list-item *ngFor="let swornMember of (swornMembers)">
+                            <a (click)="navigateToCharacter(swornMember.url)">{{swornMember.name || "Unknown" }} </a>
+                            <button mat-icon-button (click)="navigateToCharacter(swornMember.url)">
                                 <mat-icon>search</mat-icon>
                             </button>
                         </a>

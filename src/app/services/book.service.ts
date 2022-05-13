@@ -11,11 +11,12 @@ export class BookService {
   private apiUrl = "https://anapioficeandfire.com/api/books";
   constructor(private http: HttpClient) { }
 
+  /*Lekérdezem az egy oldalon lévő összes könyvet az apitol*/
   getBooks(page = 1, pageSize = 50): Observable<Book[]> {
     return this.http.get<Book[]>(this.apiUrl + "?page=" + page + "&pageSize=" + pageSize);
-    //return this.http.get<Book[]>(this.apiUrl);
   }
 
+  /*Lekérdezem egy könyvt adatait az apitol*/
   getBook(url: string): Observable<Book> {
     return this.http.get<Book>(url)
   }
