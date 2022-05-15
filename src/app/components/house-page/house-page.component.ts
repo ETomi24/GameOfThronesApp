@@ -41,7 +41,7 @@ export class HousePageComponent implements OnInit {
 
       this.house = b;
 
-      /*Csak akkor kérem le a házakat,karaktereket ha a jsonben amit kaptam szerepelt az adattag(nem volt üres string) így fölöslegesen nem fogok lekérdezni még egy objektumot */
+      /*Csak akkor kérem le a házakat,karaktereket ha a jsonben amit kaptam szerepelt az url(nem volt üres string) így fölöslegesen nem fogok lekérdezni még egy objektumot */
       if (this.house.currentLord) { this.characterService.getCharacter(this.house.currentLord).subscribe(character => this.currentLord = character); }
       if (this.house.heir) { this.characterService.getCharacter(this.house.heir).subscribe(character => this.heir = character); }
       if (this.house.overlord) { this.houseService.getHouse(this.house.overlord).subscribe(house => this.overlord = house); }
