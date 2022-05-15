@@ -43,6 +43,7 @@ export class CharacterPageComponent implements OnInit {
     this.characterService.getCharacter(url).subscribe(b => {
       this.character = b;
 
+      /*Csak akkor kérem le a karaktereket ha a jsonben amit kaptam szerepelt az adattag(nem volt üres string) így fölöslegesen nem fogok lekérdezni még egy objektumot */
       if (this.character.father) { this.characterService.getCharacter(this.character.father).subscribe(character => this.father = character); }
       if (this.character.mother) { this.characterService.getCharacter(this.character.mother).subscribe(character => this.mother = character); }
       if (this.character.spouse) { this.characterService.getCharacter(this.character.spouse).subscribe(character => this.spouse = character); }
